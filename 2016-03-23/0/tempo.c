@@ -6,17 +6,21 @@
 #define FAULT 2
 #define REPAIR 3
 
-/* descritor do nodo */
+#define UNKNOWN 0
+#define FAULTY 1
+#define FAULT_FREE 2
+
+/* Node descriptor */
 typedef struct {
-	int id; // Identificador de facility SMPL
-	// Outras estruturas locais são definidas aqui.
-} Nodo;
+	int id; // SMPL facility identifier
+	// Other local structures are defined here
+} Node;
 
-Nodo *nodos;
+Node *nodes;
 
-/* Corpo do programa */
+/* Program body */
 int main(int argc, char *argv[]) {
-	static int N; // Número de nodos do sistema
+	static int N; // Number of nodes
 	static int token;
 	static int event;
 	static int r;
@@ -31,14 +35,14 @@ int main(int argc, char *argv[]) {
 	N = atoi(argv[1]);
 	smpl(0, "programa tempo");
 	reset();
-	stream(1); // 1 thread de execução
+	stream(1); // 1 execution thread
 	
-	// Inicialização dos nodos
-	nodos = (Nodo*) malloc(N*sizeof(Nodo));
+	// Node intialization
+	nodes = (Node*) malloc(N*sizeof(Node));
 	for (i=0; i<N; i++) {
 		memset (fa_name, '\0', 5);
 		sprintf(fa_name, "%d", i);
-		nodos[i].id = facility(fa_name, 1);
+		nodes[i].id = facility(fa_name, 1);
 	}
 	
 	for (i=0; i<N; i++) {
@@ -51,25 +55,29 @@ int main(int argc, char *argv[]) {
 		cause(&event, &token);
 		switch(event) {
 			case TEST:
-				if(status(nodos[token].id != 0)) {
+				if(status(nodes[token].id != 0)) {
 					break;
 				}
 				printf("Sou o nodo %d, vou testar no tempo %5.1f\n", token, time());
+				printf("\n");
 				schedule(TEST, 30.0, token);
 				break;
 			case FAULT:
-				r = request(nodos[token].id, token, 0);
+				r = request(nodes[token].id, token, 0);
 				if (r != 0) {
 					puts("Não consegui falhar o nodo!");
 					exit(1);
 				}
 				printf("Sou o nodo %d, falhei no tempo %5.1f\n", token, time());
+
+
 				break;
 			case REPAIR:
-				release(nodos[token].id, token);
+				release(nodes[token].id, token);
 				printf("Sou o nodo %d, recuperei no tempo %5.1f\n", token, time());
+
 				schedule(TEST, 30.0, token);
 				break;
 		}
 	}
-} 
+}
