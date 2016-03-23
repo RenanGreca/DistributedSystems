@@ -6,29 +6,26 @@
 #define FAULT 2
 #define REPAIR 3
 
-#define UNKNOWN 0
+#define FAULT_FREE 0
 #define FAULTY 1
-#define FAULT_FREE 2
+#define UNKNOWN 2
 
 /* Node descriptor */
 typedef struct {
 	int id; // SMPL facility identifier
-	int status;
-	int *state;
 	// Other local structures are defined here
 } Node;
 
 Node *nodes;
 
 char* status_string(int s) {
-	if (s == UNKNOWN) {
-		return "UNKNOWN";
-	}
 	if (s == FAULTY) {
 		return "FAULTY";
  	}
- 	
-	return "FAULT-FREE";
+ 	if (s == FAULT_FREE) {
+		return "FAULT-FREE";
+	}
+	return "UNKNOWN";
 }
 
 /* Program body */
@@ -56,9 +53,6 @@ int main(int argc, char *argv[]) {
 		memset (fa_name, '\0', 5);
 		sprintf(fa_name, "%d", i);
 		nodes[i].id = facility(fa_name, 1);
-		nodes[i].status = FAULT_FREE;
-		nodes[i].state = (int *) malloc(N*sizeof(int));
-		memset(nodes[i].state, UNKNOWN, N);
 	}
 	
 	for (i=0; i<N; i++) {
@@ -71,14 +65,14 @@ int main(int argc, char *argv[]) {
 		cause(&event, &token);
 		switch(event) {
 			case TEST:
-				if(status(nodes[token].id != 0)) {
+				if(status(nodes[token].id) != FAULT_FREE) {
 					break;
 				}
 				printf("Sou o nodo %d, vou testar no tempo %5.1f\n", token, time());
 
 				int j = (token+1) % N;
 
-				printf("Estou testando o nodo %d, cujo status é: %s\n", j, status_string(nodes[j].status));
+				printf("Estou testando o nodo %d, cujo status é: %s\n", j, status_string(status(nodes[j].id)));
 				printf("\n");
 				schedule(TEST, 30.0, token);
 				break;
@@ -90,14 +84,10 @@ int main(int argc, char *argv[]) {
 				}
 				printf("Sou o nodo %d, falhei no tempo %5.1f\n", token, time());
 
-				nodes[token].status = FAULTY;
-
 				break;
 			case REPAIR:
 				release(nodes[token].id, token);
 				printf("Sou o nodo %d, recuperei no tempo %5.1f\n", token, time());
-
-				nodes[token].status = FAULT_FREE;
 
 				schedule(TEST, 30.0, token);
 				break;

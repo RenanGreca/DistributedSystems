@@ -6,14 +6,13 @@
 #define FAULT 2
 #define REPAIR 3
 
-#define UNKNOWN 0
+#define FAULT_FREE 0
 #define FAULTY 1
-#define FAULT_FREE 2
+#define UNKNOWN 2
 
 /* Node descriptor */
 typedef struct {
 	int id; // SMPL facility identifier
-	int status;
 	int *state;
 	// Other local structures are defined here
 } Node;
@@ -21,18 +20,15 @@ typedef struct {
 Node *nodes;
 
 char* status_string(int s) {
-	if (s == UNKNOWN) {
-		return "UNKNOWN";
-	}
 	if (s == FAULTY) {
 		return "FAULTY";
  	}
  	if (s == FAULT_FREE) {
 		return "FAULT-FREE";
 	}
-	//printf("%d", s);
-	return "";
+	return "UNKNOWN";
 }
+
 
 void print_state(Node n, int N) {
 	int i;
@@ -71,22 +67,22 @@ int main(int argc, char *argv[]) {
 		memset (fa_name, '\0', 5);
 		sprintf(fa_name, "%d", i);
 		nodes[i].id = facility(fa_name, 1);
-		nodes[i].status = FAULT_FREE;
 		nodes[i].state = (int *) malloc(N*sizeof(int));
 		memset (nodes[i].state, UNKNOWN, N*sizeof(int));
+		nodes[i].state[i] = FAULT_FREE;
 	}
 	
 	for (i=0; i<N; i++) {
 		schedule (TEST, 30.0, i);
 	}
 	schedule (FAULT, 31.0, 2);
-	schedule (REPAIR, 61.0, 2);
+	schedule (REPAIR, 121.0, 2);
 	
-	while (time() < 100.0) {
+	while (time() < 250.0) {
 		cause(&event, &token);
 		switch(event) {
 			case TEST:
-				if(status(nodes[token].id != 0)) {
+				if(status(nodes[token].id) != FAULT_FREE) {
 					break;
 				}
 				printf("Sou o nodo %d, vou testar no tempo %5.1f\n", token, time());
@@ -95,14 +91,15 @@ int main(int argc, char *argv[]) {
 				do {
 					j = (j+1) % N;
 
-					printf("Estou testando o nodo %d, cujo status é: %s\n", j, status_string(nodes[j].status));
-					
-					nodes[token].state[j] = nodes[j].status;
-					if (nodes[j].status == FAULT_FREE) {
+					printf("Estou testando o nodo %d, cujo status é: %s\n", j, status_string(status(nodes[j].id)));
+						
+					if (status(nodes[j].id) == FAULT_FREE) {
 						// Get J's state array
+						nodes[token].state = nodes[j].state;
 					}
+					nodes[token].state[j] = status(nodes[j].id);
 
-				} while (nodes[j].status != FAULT_FREE);
+				} while (status(nodes[j].id) != FAULT_FREE);
 
 				print_state(nodes[token], N);
 				printf("\n\n");
@@ -116,14 +113,10 @@ int main(int argc, char *argv[]) {
 				}
 				printf("Sou o nodo %d, falhei no tempo %5.1f\n", token, time());
 
-				nodes[token].status = FAULTY;
-
 				break;
 			case REPAIR:
 				release(nodes[token].id, token);
 				printf("Sou o nodo %d, recuperei no tempo %5.1f\n", token, time());
-
-				nodes[token].status = FAULT_FREE;
 
 				schedule(TEST, 30.0, token);
 				break;
