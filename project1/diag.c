@@ -223,7 +223,7 @@ void merge(int *temp, int *in, int *out, int N) {
     for (int i=0; i<N; i++) {
         if ((temp[i] == FAULTY) || (temp[i] == FAULT_FREE)) {
             out[i] = temp[i];
-        } else {
+        } else if ((in[i] == FAULTY) || (in[i] == FAULT_FREE)) {
             out[i] = in[i];
         }
     }
@@ -309,7 +309,7 @@ int main(int argc, char *argv[]) {
     int rounds_since_last_event = 0;
     int tests_since_last_event = 0;
     int previous_token = 0;
-    int number_of_events = 0;
+    int number_of_events = -1;
 
     if (verbose_mode) {
         printf("Current state arrays:\n");
@@ -376,16 +376,18 @@ int main(int argc, char *argv[]) {
                 
                 // Test random nodes until a FAULT_FREE one is found.
                 do {
-                    // Choose a random J until an unchecked one is found.
+                    // Choose a random j until an unchecked one is found.
                     do {
                         // rand_int is derived from rand.c
                         j = rand_int(0,N-1);
                     } while ((temp_state[j] == FAULT_FREE || temp_state[j] == FAULTY) && num_checked < N);
 
-                    // Now J is checked.
+                    //j = (j+1) % N;
+
+                    // Now j is checked.
                     num_checked++;
 
-                    // Tests J.
+                    // Tests j.
                     s = status(nodes[j].id)+1;
                     tests_since_last_event++;
 
@@ -429,7 +431,7 @@ int main(int argc, char *argv[]) {
         previous_token = token;
     }
 
-    printf("Final state arrays after %d events:\n", number_of_events);
+    printf("Final state arrays after %d events and %d rounds:\n", number_of_events, testing_round);
     print_definitive_state(nodes, N);
     print_states(nodes, N);
 
