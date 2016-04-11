@@ -1,0 +1,16 @@
+reset
+stats "out.data" name "STATS" nooutput
+set output "plot.png"
+set terminal png size 800,600
+set lmargin 5
+set rmargin 5
+set tmargin 5
+set bmargin 5
+
+set yrange [0:50]
+set xrange [0:30]
+
+set label 1 gprintf("Mean = %g", STATS_mean) at 2, 51
+set label 2 gprintf("Standard deviation = %g", STATS_stddev) at 17, 51
+
+plot "out.data" t "data", STATS_mean t "Mean average", STATS_stddev t "Std. deviation"
