@@ -11,7 +11,6 @@
  */
 
 #include <stdio.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
@@ -36,10 +35,6 @@ using SMPL's status function, we must always
 add 1.
 */
 
-/* Checked status; used when selecting a random node */
-#define UNCHECKED 0
-#define CHECKED 1
-
 /* Time between each testing round */
 #define TESTING_INTERVAL 30.0
 
@@ -61,10 +56,11 @@ Node *nodes;
     Correct usage of program in case of incorrect parameters
 */
 void show_usage() {
-    printf("Correct usage: diag [-s] [-v] [-p] [number-of-nodes]\n");
+    printf("Correct usage: diag [-s] [-v] [-a] [number-of-nodes]\n");
     printf("Options:\n");
     printf("        -s : Synthesis mode (simulates up to 30 events; prints and plots the statistics)\n");
     printf("        -v : Verbose (outputs a detailed log)\n");
+    printf("        -a : Adaptive DSD (removes randomized node selection)\n");
 }
 
 /*
@@ -221,6 +217,7 @@ void mean_and_deviation(int *lag, int n) {
 */
 void merge(int *temp, int *in, int *out, int N) {
     for (int i=0; i<N; i++) {
+        // Only valid data has to be copied; UNKNOWN states are useless.
         if ((temp[i] == FAULTY) || (temp[i] == FAULT_FREE)) {
             out[i] = temp[i];
         } else if ((in[i] == FAULTY) || (in[i] == FAULT_FREE)) {
@@ -240,7 +237,7 @@ int main(int argc, char *argv[]) {
     
     bool synthesis_mode = false;
     bool verbose_mode = false;
-    bool plot = false;
+    bool adsd = false;
 
     // Parse command-line arguments
     int opt;
@@ -249,10 +246,11 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    while ((opt = getopt(argc, argv, "sv")) != -1) {
+    while ((opt = getopt(argc, argv, "sva")) != -1) {
         switch (opt) {
             case 's': synthesis_mode = true; break;
             case 'v': verbose_mode = true; break;
+            case 'a': adsd = true; break;
         default:
             show_usage();
             exit(1);
@@ -270,8 +268,8 @@ int main(int argc, char *argv[]) {
     // In synthesis mode, number of events is min(N, 30)
     int total_events = 1;
     if (synthesis_mode) {
-        total_events = N;
-        if (N > 30) {
+        total_events = N/2;
+        if (N > 60) {
             total_events = 30;
         }
     }
@@ -308,8 +306,14 @@ int main(int argc, char *argv[]) {
     int testing_round = 0;
     int rounds_since_last_event = 0;
     int tests_since_last_event = 0;
+    int number_of_tests = 0;
     int previous_token = 0;
     int number_of_events = -1;
+
+    printf("=============================================================================\n");
+    printf("                Randomized distributed diagnosis algorithm                   \n");
+    printf("              Renan Greca - Distributed Systems, April 2016                  \n");
+    printf("=============================================================================\n");
 
     if (verbose_mode) {
         printf("Current state arrays:\n");
@@ -336,12 +340,18 @@ int main(int argc, char *argv[]) {
                 number_of_events++;
 
                 if (verbose_mode) {
-                    printf("System is stable after %d rounds, %d tests and %d events.\n", rounds_since_last_event, tests_since_last_event, number_of_events);
+                    printf("System is stable after %d rounds, %d tests and %d events.\n",
+                        rounds_since_last_event,
+                        tests_since_last_event,
+                        number_of_events);
                 }
 
                 // Selects a random node to fail
                 // An already failed node may be chosen
-                int event_node = rand_int(0,N-1);
+                int event_node;
+                do {
+                    event_node = rand_int(0,N-1);
+                } while (nodes[event_node].state[event_node] == FAULTY);
 
                 if (verbose_mode) {
                     printf("Scheduling failure for %d in round %d\n", event_node, testing_round+1);
@@ -369,6 +379,9 @@ int main(int argc, char *argv[]) {
 
                 int j = token;
                 int s = UNKNOWN;
+
+                // temp_state stores the diagnosis information of the current round of testing.
+                // this is useful both to avoid repeating random nodes and when merging state arrays.
                 memset (temp_state, UNKNOWN, N*sizeof(int));
                 temp_state[token] = FAULT_FREE;
 
@@ -376,13 +389,17 @@ int main(int argc, char *argv[]) {
                 
                 // Test random nodes until a FAULT_FREE one is found.
                 do {
-                    // Choose a random j until an unchecked one is found.
-                    do {
-                        // rand_int is derived from rand.c
-                        j = rand_int(0,N-1);
-                    } while ((temp_state[j] == FAULT_FREE || temp_state[j] == FAULTY) && num_checked < N);
-
-                    //j = (j+1) % N;
+                    
+                    // Non-random Adaptive DSD mode
+                    if (adsd) {
+                        j = (j+1) % N;
+                    } else {
+                        // Choose a random j until an unchecked one is found.
+                        do {
+                            // rand_int is derived from rand.c
+                            j = rand_int(0,N-1);
+                        } while ((temp_state[j] == FAULT_FREE || temp_state[j] == FAULTY) && num_checked < N);
+                    }
 
                     // Now j is checked.
                     num_checked++;
@@ -390,6 +407,7 @@ int main(int argc, char *argv[]) {
                     // Tests j.
                     s = status(nodes[j].id)+1;
                     tests_since_last_event++;
+                    number_of_tests++;
 
                     if (verbose_mode) {
                         printf("Testing node %d, whose status is: ", j);
@@ -431,7 +449,10 @@ int main(int argc, char *argv[]) {
         previous_token = token;
     }
 
-    printf("Final state arrays after %d events and %d rounds:\n", number_of_events, testing_round);
+    printf("Final state arrays after %d events, %d tests and %d rounds:\n", 
+        number_of_events,
+        number_of_tests,
+        testing_round);
     print_definitive_state(nodes, N);
     print_states(nodes, N);
 

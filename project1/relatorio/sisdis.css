@@ -1,0 +1,16 @@
+body {
+	background-color: #F0F0F0;
+	font-family: 'SF UI Display', 'Calibri', 'Verdana', 'Helvetica', sans-serif;
+}
+
+.main {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px 0;
+	text-align: justify;
+}
+
+a {
+	text-decoration: none;
+	color: #008EFC;
+}

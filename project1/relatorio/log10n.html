@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- This file was created with the aha Ansi HTML Adapter. http://ziz.delphigl.com/tool_aha.php -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xml+xhtml; charset=UTF-8" />
+<title>stdin</title>
+</head>
+<body>
+<pre>
+=============================================================================
+                Randomized distributed diagnosis algorithm                   
+              Renan Greca - Distributed Systems, April 2016                  
+=============================================================================
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   1:<span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   2:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   3:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   4:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   5:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   6:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   7:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   8:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   9:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+Node 0, about to test on round 0, time  30.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 0, time  30.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 0, time  30.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 0, time  30.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 0, time  30.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 0, time  30.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 0, time  30.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 0, time  30.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 0, time  30.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 0, time  30.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   1:<span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   2:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   3:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   4:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   6:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   7:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   8:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   9:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 1
+Node 0, about to test on round 1, time  60.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 1, time  60.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 1, time  60.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 1, time  60.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 1, time  60.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 1, time  60.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 1, time  60.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 1, time  60.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 1, time  60.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 1, time  60.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   1:<span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   2:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   4:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   6:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   8:<span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   9:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 2
+Node 0, about to test on round 2, time  90.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 2, time  90.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 2, time  90.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 2, time  90.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 2, time  90.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 2, time  90.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 2, time  90.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 2, time  90.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 2, time  90.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 2, time  90.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   2:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   6:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 3
+Node 0, about to test on round 3, time 120.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 3, time 120.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 3, time 120.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 3, time 120.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 3, time 120.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 3, time 120.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 3, time 120.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 3, time 120.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 3, time 120.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 3, time 120.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 4
+Node 0, about to test on round 4, time 150.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 4, time 150.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 4, time 150.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 4, time 150.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 4, time 150.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 4, time 150.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 4, time 150.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 4, time 150.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 4, time 150.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 4, time 150.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:olive;">     UNKNOWN</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:olive;">     UNKNOWN</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 5
+Node 0, about to test on round 5, time 180.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 5, time 180.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 5, time 180.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 5, time 180.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 5, time 180.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 5, time 180.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 5, time 180.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 5, time 180.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 5, time 180.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 5, time 180.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+System is stable after 5 rounds, 60 tests and 0 events.
+Scheduling failure for 4 in round 6
+Testing for round 6
+Node 0, about to test on round 6, time 210.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 6, time 210.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 6, time 210.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 6, time 210.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 4, about to test on round 6, time 210.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 6, time 210.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 6, time 210.0
+Testing node 4, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 6, time 210.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 6, time 210.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 6, time 210.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 7
+Node 4 failed on round 7
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 8
+Node 0, about to test on round 8, time 240.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 8, time 240.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 8, time 240.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 8, time 240.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 8, time 240.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 8, time 240.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 8, time 240.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 8, time 240.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 8, time 240.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 9
+Node 0, about to test on round 9, time 270.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 9, time 270.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 9, time 270.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 9, time 270.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 9, time 270.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 9, time 270.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 9, time 270.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 9, time 270.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 9, time 270.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 10
+Node 0, about to test on round 10, time 300.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 10, time 300.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 10, time 300.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 10, time 300.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 10, time 300.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 10, time 300.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 10, time 300.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 10, time 300.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 10, time 300.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 11
+Node 0, about to test on round 11, time 330.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 11, time 330.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 11, time 330.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 11, time 330.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 11, time 330.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 11, time 330.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 11, time 330.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 11, time 330.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 11, time 330.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 12
+Node 0, about to test on round 12, time 360.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 12, time 360.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 12, time 360.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 12, time 360.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 12, time 360.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 12, time 360.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 12, time 360.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 12, time 360.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 12, time 360.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 13
+Node 0, about to test on round 13, time 390.0
+Testing node 9, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 13, time 390.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 13, time 390.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 13, time 390.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 13, time 390.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 13, time 390.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 13, time 390.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 13, time 390.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 13, time 390.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 14
+Node 0, about to test on round 14, time 420.0
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 14, time 420.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 14, time 420.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 14, time 420.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 8, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 14, time 420.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 14, time 420.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 14, time 420.0
+Testing node 5, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 14, time 420.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 14, time 420.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+Testing for round 15
+Node 0, about to test on round 15, time 450.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 1, about to test on round 15, time 450.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 2, about to test on round 15, time 450.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 15, time 450.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 5, about to test on round 15, time 450.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 6, about to test on round 15, time 450.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 7, about to test on round 15, time 450.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 8, about to test on round 15, time 450.0
+Testing node 7, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 9, about to test on round 15, time 450.0
+Testing node 0, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+System is stable after 10 rounds, 91 tests and 1 events.
+Scheduling failure for 1 in round 16
+Testing for round 16
+Node 0, about to test on round 16, time 480.0
+Testing node 6, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Final state arrays after 1 events, 152 tests and 16 rounds:
+                0           1           2           3           4           5           6           7           8           9
+     <span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+------------------------------------------------------
+                0           1           2           3           4           5           6           7           8           9
+   0:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   2:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   3:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   4:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   5:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   6:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   7:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   8:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   9:<span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+</pre>
+</body>
+</html>

@@ -7,8 +7,16 @@ set rmargin 5
 set tmargin 5
 set bmargin 5
 
+set ylabel "lag"
+set yrange [0:100]
+set xlabel "events"
+set xrange [1:30]
 
-set label 1 gprintf("Mean = %g", STATS_mean) at 2, -15
-set label 2 gprintf("Standard deviation = %g", STATS_stddev) at 17, -15
+set label 1 gprintf("Mean = %g", STATS_mean) at 2, 115
+set label 2 gprintf("Standard deviation = %g", STATS_stddev) at 17, 115
 
-plot "out.data" t "data", STATS_mean t "Mean average", STATS_stddev t "Std. deviation"
+plot STATS_mean-STATS_stddev with filledcurves y1=STATS_mean lt 1 lc rgb "#ddddff" t "", \
+STATS_mean+STATS_stddev with filledcurves y1=STATS_mean lt 1 lc rgb "#ddddff" t "", \
+"out.data" t "data" lc rgb "#aa00aa", \
+STATS_mean t "Mean average" lc rgb "#ff0000"
+# STATS_stddev t "Std. deviation"lc rgb "#0000ff"
