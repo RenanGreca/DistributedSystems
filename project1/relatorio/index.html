@@ -44,12 +44,13 @@ do {
 
     <pre>
 Correct usage: diag [-s] [-v] [-a] [number-of-nodes]
+number-of-nodes: number of nodes for simulated system (must be an integer greater than 1)
 Options:
         -s : Synthesis mode (simulates up to 30 events; prints and plots the statistics)
         -v : Verbose (outputs a detailed log)
         -a : Adaptive DSD (removes randomized node selection)</pre>
 
-    <p>No modo síntese (<code>-s</code>), são simulados 30 eventos (ou N/2 se N < 60, pois o algoritmo se torna instável quando a maioria dos nodos estão falhos) aleatórios e suas estatísticas são
+    <p>No modo síntese (<code>-s</code>), são simulados 30 eventos (ou 2N/3 se N ≤ 35, pois o algoritmo se torna instável quando a maioria dos nodos estão falhos) aleatórios e suas estatísticas são
     apresentadas tanto em texto pela saída padrão quanto de forma visual no arquivo plot.png.<p>
 
     <p>A opção <code>-v</code> faz com que o programa imprima o log completo durante a execução.
@@ -81,8 +82,9 @@ Options:
     Afinal, ao se tratar de números aleatórios, muito depende da "sorte" do algoritmo de obter números que auxilie a execução.</p>
 
     <p>Uma propriedade interessante do algoritmo aleatório (que não consegui modificar sem ter que alterar grandes porções do código) é que, por "azar", é possível que um nodo perca informações de diagnóstico que ele já havia obtido.
-    Por exemplo, considere uma situação em que na rodada 1 os nodos 0, 1, 2 e 3 estão sem-falha e têm vetores de estado corretos.
-    A seguir, na rodada 1, o nodo 1 falha. O nodo 0 sorteia 1, salva o diagnóstico falho, sorteia 3 e encerra seus testes, enquanto os nodos 2 e 3 sorteiam um ao outro e não modificam seus diagnósticos.
+    Por exemplo, considere uma situação em que em uma certa rodada de testes os nodos 0, 1, 2 e 3 estão sem-falha e têm vetores de estado corretos.
+    Na rodada seguinte, o nodo 1 falha.
+    O nodo 0 sorteia 1, salva o diagnóstico falho, sorteia 3 e encerra seus testes, enquanto os nodos 2 e 3 sorteiam um ao outro e não modificam seus diagnósticos.
     Na rodada seguinte, se o nodo 0 sortear 2 ou 3, ele irá obter as informações de diagnóstico desse outro nodo, sobrepondo as que obteve na rodada anterior (pois é impossível determinar qual dos diagnósticos é mais recente).
     Assim, seu vetor de estados voltará a indicar que o nodo 1 está sem-falha.</p>
 
@@ -108,6 +110,7 @@ Options:
         <li><a href="log30s.html">Execução síntese com 30 nodos</a></li>
         <li><a href="log50n.html">Execução normal com 50 nodos</a></li>
         <li><a href="log50s.html">Execução síntese com 50 nodos</a></li>
+        <li><a href="log50a.html">Execução do Adaptive DSD com 50 nodos</a></li>
         <li><a href="log100n.html">Execução normal com 100 nodos</a></li>
     </ul>
 

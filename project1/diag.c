@@ -57,6 +57,7 @@ Node *nodes;
 */
 void show_usage() {
     printf("Correct usage: diag [-s] [-v] [-a] [number-of-nodes]\n");
+    printf("number-of-nodes: number of nodes for simulated system (must be an integer greater than 1)\n");
     printf("Options:\n");
     printf("        -s : Synthesis mode (simulates up to 30 events; prints and plots the statistics)\n");
     printf("        -v : Verbose (outputs a detailed log)\n");
@@ -241,7 +242,7 @@ int main(int argc, char *argv[]) {
 
     // Parse command-line arguments
     int opt;
-    if ((argc < 2) || (argc > 4)) {
+    if ((argc < 2) || (argc > 5)) {
         show_usage();
         exit(1);
     }
@@ -259,20 +260,22 @@ int main(int argc, char *argv[]) {
 
     N = atoi(argv[optind]);
 
-    if (N <= 0) {
+    if (N <= 1) {
         show_usage();
         exit(1);
     }
 
     // Standard execution simulates 1 event
-    // In synthesis mode, number of events is min(N, 30)
+    // In synthesis mode, number of events is min(N/2, 30)
     int total_events = 1;
     if (synthesis_mode) {
-        total_events = N/2;
-        if (N > 60) {
+        total_events = (N*2)/3;
+        if (N > 35) {
             total_events = 30;
         }
     }
+
+    printf("Number of events to be simulated: %d\n", total_events);
 
     // Sets up SMPL simulation
     smpl(0, "diagnosis");

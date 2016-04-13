@@ -8,6 +8,7 @@
 </head>
 <body>
 <pre>
+Number of events to be simulated: 3
 =============================================================================
                 Randomized distributed diagnosis algorithm                   
               Renan Greca - Distributed Systems, April 2016                  
@@ -335,7 +336,11 @@ Scheduling failure for 1 in round 12
 Testing for round 12
 Node 1, about to test on round 12, time 390.0
 Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
-Final state arrays after 2 events, 60 tests and 12 rounds:
+Node 2, about to test on round 12, time 390.0
+Testing node 1, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 12, time 390.0
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
                 0           1           2           3           4
      <span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
 ------------------------------------------------------
@@ -350,7 +355,75 @@ Final state arrays after 2 events, 60 tests and 12 rounds:
 
    4:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
 
-The mean was 4.00 and the deviation was 0.00
+Testing for round 13
+Node 1 failed on round 13
+Node 2, about to test on round 13, time 420.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 13, time 420.0
+Testing node 0, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 1, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4
+     <span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+------------------------------------------------------
+                0           1           2           3           4
+   0:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   2:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   3:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   4:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+Testing for round 14
+Node 2, about to test on round 14, time 450.0
+Testing node 1, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Node 3, about to test on round 14, time 450.0
+Testing node 4, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 1, whose status is: <span style="color:red;">      FAULTY</span>
+Testing node 2, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Current state arrays:
+                0           1           2           3           4
+     <span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+------------------------------------------------------
+                0           1           2           3           4
+   0:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   2:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   3:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   4:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+System is stable after 3 rounds, 14 tests and 3 events.
+Scheduling failure for 3 in round 15
+Testing for round 15
+Node 2, about to test on round 15, time 480.0
+Testing node 3, whose status is: <span style="color:green;">  FAULT-FREE</span>
+Final state arrays after 3 events, 74 tests and 15 rounds:
+                0           1           2           3           4
+     <span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+------------------------------------------------------
+                0           1           2           3           4
+   0:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span>
+
+   1:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   2:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   3:<span style="color:red;">      FAULTY</span><span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+   4:<span style="color:red;">      FAULTY</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:green;">  FAULT-FREE</span><span style="color:red;">      FAULTY</span>
+
+The mean was 3.50 and the deviation was 0.50
 </pre>
 </body>
 </html>
