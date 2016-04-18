@@ -29,13 +29,19 @@ mv log.html relatorio/log50n.html
 ./diag -v -s 50 > out.log
 cat out.log | aha > log.html
 mv log.html relatorio/log50s.html
-mv plot.png relatorio/randomdsd.png
+gnuplot plot.dat
+mv rounds.png relatorio/randomdsd.png
+mv tests.png relatorio/randomdsd-tests.png
 ./diag -v -s -a 50 > out.log
 cat out.log | aha > log.html
 mv log.html relatorio/log50a.html
-mv plot.png relatorio/adaptivedsd.png
+gnuplot plot.dat
+mv rounds.png relatorio/adaptivedsd.png
+mv tests.png relatorio/adaptivedsd-tests.png
 
 echo "generate logs for 100 nodes"
 ./diag -v 100 > out.log
 cat out.log | aha > log.html
 mv log.html relatorio/log100n.html
+
+cp diag.c relatorio/diag.c.txt
