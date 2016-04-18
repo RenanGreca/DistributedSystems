@@ -1,6 +1,6 @@
 reset
-stats "out.data" name "STATS" nooutput
-set output "plot.png"
+stats "rounds.out" name "STATS" nooutput
+set output "rounds.png"
 set terminal png size 800,600
 set lmargin 5
 set rmargin 5
@@ -17,6 +17,29 @@ set label 2 gprintf("Standard deviation = %g", STATS_stddev) at 17, 115
 
 plot STATS_mean-STATS_stddev with filledcurves y1=STATS_mean lt 1 lc rgb "#ddddff" t "", \
 STATS_mean+STATS_stddev with filledcurves y1=STATS_mean lt 1 lc rgb "#ddddff" t "", \
-"out.data" t "data" lc rgb "#aa00aa", \
+"out.data" t "Number of rounds" lc rgb "#aa00aa", \
+STATS_mean t "Mean average" lc rgb "#ff0000"
+# STATS_stddev t "Std. deviation"lc rgb "#0000ff"
+
+reset
+stats "tests.out" name "STATS" nooutput
+set output "tests.png"
+set terminal png size 800,600
+set lmargin 5
+set rmargin 5
+set tmargin 5
+set bmargin 5
+
+set ylabel "lag"
+set yrange [1000:1500]
+set xlabel "events"
+set xrange [1:30]
+
+set label 1 gprintf("Mean = %g", STATS_mean) at 2, 115
+set label 2 gprintf("Standard deviation = %g", STATS_stddev) at 17, 115
+
+plot STATS_mean-STATS_stddev with filledcurves y1=STATS_mean lt 1 lc rgb "#ddddff" t "", \
+STATS_mean+STATS_stddev with filledcurves y1=STATS_mean lt 1 lc rgb "#ddddff" t "", \
+"out.data" t "Number of tests" lc rgb "#aa00aa", \
 STATS_mean t "Mean average" lc rgb "#ff0000"
 # STATS_stddev t "Std. deviation"lc rgb "#0000ff"

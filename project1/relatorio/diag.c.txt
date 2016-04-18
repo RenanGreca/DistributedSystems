@@ -130,13 +130,14 @@ void print_states(Node *nodes, int N) {
     printf("\n");
 
     for (int k=0; k<N; k++) {
-
-        // Prints one vertical index
-        printf("%4d:", k);
-        for (i=0; i<N; i++) {
-            print_status(nodes[k].state[i]);
+        if (nodes[k].state[k] == FAULT_FREE) {
+            // Prints one vertical index
+            printf("%4d:", k);
+            for (i=0; i<N; i++) {
+                print_status(nodes[k].state[i]);
+            }
+            printf("\n\n");
         }
-        printf("\n\n");
     }
 }
 
@@ -180,10 +181,11 @@ bool stable(Node *nodes, int N) {
     int *lag:   array of number of testing rounds between each event 
                 and its diagnosis
     int n: number of events that occured during the simulation
+    char *filename: Name of file in which to store output
 */
-void mean_and_deviation(int *lag, int n) {
+void mean_and_deviation(int *lag, int n, char *filename) {
 
-    FILE *output = fopen("out.data", "w");
+    FILE *output = fopen(filename, "w");
 
     float mean = 0.0;
     for (int i=1; i<n; i++) {
@@ -194,9 +196,6 @@ void mean_and_deviation(int *lag, int n) {
 
     fflush(output);
 
-    FILE *gnuplot = popen("gnuplot plot.dat", "w");
-    pclose(gnuplot);
-
     float deviation = 0.0;
     for (int i=1; i<n; i++) {
         deviation += (lag[i] - mean)*(lag[i] - mean);
@@ -204,7 +203,7 @@ void mean_and_deviation(int *lag, int n) {
     deviation /= (n-1);
     deviation = sqrt(deviation);
 
-    printf("The mean was %.2f and the deviation was %.2f\n", mean, deviation);
+    printf("the mean was %.2f and the deviation was %.2f.\n", mean, deviation);
 }
 
 /* 
@@ -305,6 +304,9 @@ int main(int argc, char *argv[]) {
     int *lag;
     lag = (int *) malloc(total_events*sizeof(int));
 
+    int *tests_lag;
+    tests_lag = (int *) malloc(total_events*sizeof(int));
+
     int num_checked = 0;
     int testing_round = 0;
     int rounds_since_last_event = 0;
@@ -340,6 +342,7 @@ int main(int argc, char *argv[]) {
 
                 // Stores lag information
                 lag[number_of_events] = rounds_since_last_event;
+                tests_lag[number_of_events] = tests_since_last_event;
                 number_of_events++;
 
                 if (verbose_mode) {
@@ -451,15 +454,18 @@ int main(int argc, char *argv[]) {
         }
         previous_token = token;
     }
+    print_definitive_state(nodes, N);
+    print_states(nodes, N);
 
     printf("Final state arrays after %d events, %d tests and %d rounds:\n", 
         number_of_events,
         number_of_tests,
         testing_round);
-    print_definitive_state(nodes, N);
-    print_states(nodes, N);
 
     if (synthesis_mode) {
-        mean_and_deviation(lag, number_of_events);
+        printf("For the number of rounds between each event, ");
+        mean_and_deviation(lag, number_of_events, "rounds.out");
+        printf("For the number of tests between each event, ");
+        mean_and_deviation(tests_lag, number_of_events, "tests.out");
     }
 }
