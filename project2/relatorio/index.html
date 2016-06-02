@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta charset="UTF-8"> 
+<script src="prettify.js"></script>
+<link rel="stylesheet" href="github-v2.css">
+<link rel="stylesheet" href="sisdis.css">
+<title>Trabalho 1 - Sistemas Distribuídos</title>
+</head>
+
+
+<body>
+
+<div class="main">
+    <h1>Trabalho Prático 2 de Sistemas Distribuídos</h1>
+    <h2>Por Renan Greca</h2>
+
+    <i>
+    Trabalho realizado para a disciplina de Sistemas Distribuídos (CI721), PPGINF/UFPR, Prof. Elias P. Duarte Jr. <br />
+    Maio de 2016
+    </i>
+
+    <h3>Desenvolvimento</h3>
+
+    <p>Este projeto tinha como objetivo desenvolver uma implementação do algoritmo Ricart-Agrawala de exclusão mútua.
+    Para tal, utilizei a definição do algoritmo vista em sala de aula e a adaptei para um programa em C utilizando a biblioteca SMPL.</p>
+
+    <p>Comecei funcionalidades do SMPL que eu já havia utilizado no primeiro trabalho da disciplina.
+    Contudo, logo percebi que estava faltando algo para atender as necessidades deste segundo trabalho.
+    Em particular, o principal uso da biblioteca SMPL é permitir o agendamento de eventos para os múltiplos nodos, mas esses eventos não contêm qualquer informação além do tipo do evento e do no que irá executá-lo.</p>
+
+    <p>Portanto, alterei o código-fonte das funções <code>schedule</code> e <code>cause</code> do SMPL.
+    Na minha versão, ambas aceitam parâmetros adicionais: <code>sender</code> e <code>timestamp</code>.
+    Ou seja, agora um evento carrega adicionalmente o identificador e o <i>timestamp</i> do nodo que solicitou o evento.
+    Essas informações são importantes para que os eventos se comportem mais como trocas de mensagens e permitem uma transcrição mais simples do algoritmo de Ricart-Agrawala.</p>
+
+    <p>O próximo passo foi implementar os relógios lógicos. Na verdade, bastou armazenar um inteiro em cada nodo que é modificado de acordo com os eventos. Quando o nodo envia uma mensagem, o relógio é incrementado em 1.
+    Quando ele recebe uma mensagem, o relógio será o máximo entre o próprio <i>timestamp</i> e o <i>timestamp</i> do remetente, mais 1.</p>
+
+    <p>Utilizando o <i>timestamp</i> das requisições de região crítica junto com os identificadores dos nodos, criei a função <code>priority</code> que define se o receptor de uma requisição tem ou não prioridade sobre o requisitor.</p>
+
+    <p>A partir daí, o restante do desenvolvimento do trabalho foi apenas seguindo a "receita de bolo" dos passos de Ricart-Agrawala.</p>
+    
+    <h3>Como usar</h3>
+
+    <pre>
+Correct usage: mutex [time...]
+time: moment in which each node will request usage of the critical region
+Example: "mutex 10 20 30" -> three nodes will request at timestamps 10, 20 and 30.</pre>
+
+    <p>O número de nodos na simulação será igual ao número de parâmetros.
+    Cada parâmetro indica o tempo físico (da função <code>time</code>) em que o respectivo nodo irá solicitar a região crítica.</p>
+
+    <h3>Conclusões</h3>
+
+    <p>Este trabalho foi surpreendentemente simples de desenvolver.
+    O maior desafio foi pensar em uma solução para simular as trocas de mensagens mas, depois disso, as coisas aconteceram de acordo com o esperado.</p>
+
+    <p>Para verificar a corretude do programa, fiz alguns exemplos de execução manualmente no papel e verifiquei se o log do programa condizia com o esperado.
+    Em todos os casos, foi o que aconteceu.</p>
+
+    <p><i>O programa foi desenvolvido usando o compilador Clang no OS X 10.11. Podem ocorrer erros de compilação simples em outros sistemas.</i></p>
+
+    <h3>Arquivos</h3>
+    <ul>
+        <li><a href="#">index.html</a> - Este relatório.</li>
+        <li><a href="mutex.c.html">mutex.c</a> - Código-fonte do programa (em inglês).</li>
+        <li><a href="../makefile">makefile</a> - Script make.</li>
+        <li><a href="../generate_logs.sh">generate_logs.sh</a> - Script para gerar os logs.</li>
+        <li><a href="../smpl.h">smpl.h</a> / <a href="../smpl.c">smpl.c</a> - Biblioteca de simulação SMPL. Usei a versão já modificada do trabalho 1 e adicionei as alterações mencionadas acima.</li>
+        <li><a href="../rand.h">rand.h</a> / <a href="../rand.c">rand.c</a> - Gerador de números aleatórios do SMPL (mesma versão que o trabalho 1).</li>
+    </ul>
+
+    <h3>Logs</h3>
+    Todas as mensagens de log começam com <code>(i, j)</code>, onde <code>i</code> é o identificador do nodo que emitiu a mensagem e <code>j</code> é o <i>timestamp</i> do nodo no momento em que aquele evento foi processado.
+    <ul>
+        <li><a href="log2_1.html">mutex 1 1</a></li>
+        <li><a href="log2_2.html">mutex 1 2</a></li>
+        <li><a href="log2_3.html">mutex 1 10</a></li>
+        <li><a href="log3_1.html">mutex 1 2 3</a></li>
+        <li><a href="log3_2.html">mutex 1 3 5</a></li>
+        <li><a href="log3_3.html">mutex 1 20 300</a></li>
+    </ul>
+
+    <center>Todo o projeto pode ser conferido no <a href="https://github.com/RenanGreca/DistributedSystems/">GitHub</a>.</center>
+</div>
+</body>
+</html>

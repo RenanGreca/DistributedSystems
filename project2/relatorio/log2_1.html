@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- This file was created with the aha Ansi HTML Adapter. http://ziz.delphigl.com/tool_aha.php -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xml+xhtml; charset=UTF-8" />
+<title>stdin</title>
+</head>
+<body>
+<pre>
+=============================================================================
+               Ricart-Agrawala mutual exclusion algorithm                    
+               Renan Greca - Distributed Systems, May 2016                   
+=============================================================================
+-----
+(0, 1) Requested C.R. 
+-----
+(1, 1) Requested C.R. 
+-----
+(0, 2) Received request from 1
+(0, 2) Adding 1 to pending array
+-----
+(1, 2) Received request from 0
+(1, 2) Sending reply to 0
+-----
+(0, 3) Received reply from 1
+(0, 3) Entered the critical region.
+-----
+(0, 4) Left the critical region.
+(0, 4) Sending reply to 1
+-----
+(1, 5) Received reply from 0
+(1, 5) Entered the critical region.
+-----
+(1, 6) Left the critical region.
+</pre>
+</body>
+</html>
